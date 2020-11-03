@@ -8,24 +8,25 @@
     <table class="table">
         <thead>
             <tr>
+                <th>actions</th>
                 <th>Id</th>
                 <th>Username</th>
                 <th>Roles</th>
                 <th>Password</th>
-                <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ 'user.password' }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
                 </td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ 'user.password' }}</td>
+
             </tr>
         {% else %}
             <tr>
@@ -34,6 +35,7 @@
         {% endfor %}
         </tbody>
     </table>
+
 
     <a href="{{ path('user_new') }}">Create new</a>
 {% endblock %}
