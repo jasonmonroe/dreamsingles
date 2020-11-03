@@ -9,6 +9,18 @@
 
     </head>
     <body>
+        <span>php bin/console cache:clear</span>
+        {% if app.user %}
+            <nav >
+                Greetings <a href="{{ path('user_show', {'id': app.user.id}) }}"> {{ app.user.username }}</a>
+                <a href="{{ path('user_index') }}">Users</a>
+                <a href="{{ path('app_logout') }}">Logout</a>
+            </nav>
+
+
+        {% endif %}
+
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
