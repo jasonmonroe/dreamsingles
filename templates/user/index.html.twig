@@ -8,8 +8,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>actions</th>
-                <th>Id</th>
+                <th>Actions</th>
+                <th>ID</th>
                 <th>Username</th>
                 <th>Roles</th>
                 <th>Password</th>
@@ -19,8 +19,9 @@
         {% for user in users %}
             <tr>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                    <span>{{ include('user/_delete_form.html.twig') }}</span>
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
                 </td>
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
@@ -36,6 +37,6 @@
         </tbody>
     </table>
 
-
-    <a href="{{ path('user_new') }}">Create new</a>
+    <hr>
+    <a href="{{ path('user_new') }}">add user</a>
 {% endblock %}

@@ -1,29 +1,29 @@
 # Introduction
 
-Foobar is a Python library for dealing with word pluralization.
+Please have them create a site with the following features:
+* Registration page
+* Log in page
+* Members only dashboard section required after logging in or registering
+* The members only page would contain:
+** a list of posts submitted by other users
+** ability to submit a post (can be as simple as a message)
+** ability to edit the post, if the authenticated user is the owner
+Some rules for this:
+* Do not use a bundle like FOSUserBundle for handling user registration and authentication.
+* Be creative with the styling; please don't submit a plain (non-styled) site.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Clone main branch [repo branch](https://github/jasonmonroe/dreamsingles) to install app.
 
 ```bash
-pip install foobar
+Schema is located in _schema directory.
 ```
 
-## Usage
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+Pull requests are welcome. Remember this is basic application for demo purposes.
 
 ## License
 [ReadMe](https://www.makeareadme.com/)

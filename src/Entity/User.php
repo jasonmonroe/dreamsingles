@@ -34,6 +34,11 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $created;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +95,13 @@ class User implements UserInterface
         return $this;
     }
 
+    public function setCreated(string $created): self
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
     /**
      * @see UserInterface
      */
@@ -106,4 +118,10 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+    public function getCreated(): ?string
+    {
+        return $this->created;
+    }
+
 }

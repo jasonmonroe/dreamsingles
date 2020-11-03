@@ -23,6 +23,12 @@ class PostController extends AbstractController
 
         // must be logged in to view this controller
         $this->session = $session;
+        $is_logged_in  = $this->session->get('is_logged_in');
+
+        if($is_logged_in != true){
+            return $this->render('security/login.html.twig', [
+            ]);
+        }
        // parent::__construct();
     }
 

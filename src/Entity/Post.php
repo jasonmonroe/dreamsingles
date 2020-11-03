@@ -32,6 +32,11 @@ class Post
      */
     private $user_id;
 
+    /**
+     * @ORM\Column(type="string", length=32)
+     */
+    private $created;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,9 +59,21 @@ class Post
         return $this->body;
     }
 
+    public function getCreated(): ?string
+    {
+        return $this->created;
+    }
+
     public function setBody(string $body): self
     {
         $this->body = $body;
+
+        return $this;
+    }
+
+    public function setCreated(string $created): self
+    {
+        $this->created = $created;
 
         return $this;
     }

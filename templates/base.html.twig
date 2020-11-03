@@ -10,13 +10,16 @@
     </head>
     <body>
         <span>php bin/console cache:clear</span>
+        <h1>Dream Singles</h1>
         {% if app.user %}
-            <nav >
-                Greetings <a href="{{ path('user_show', {'id': app.user.id}) }}"> {{ app.user.username }}</a>
+            <nav>
+                <span>Greetings @<a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.username }}</a></span>
+                <span>|</span>
                 <a href="{{ path('user_index') }}">Users</a>
+                <span>|</span>
                 <a href="{{ path('app_logout') }}">Logout</a>
             </nav>
-
+            <hr>
 
         {% endif %}
 
