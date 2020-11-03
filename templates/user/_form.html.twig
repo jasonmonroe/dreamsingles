@@ -1,5 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn" type="submit">{{ button_label|default('Save') }}</button>
+    <hr>
+    <button id="save-user-btn" name="save-user-btn" class="btn" type="submit">{{ button_label|default('Save') }}</button>
     <button id="clear-user-btn" name="clear-user-btn" type="reset">clear</button>
 {{ form_end(form) }}

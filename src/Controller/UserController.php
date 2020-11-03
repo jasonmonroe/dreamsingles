@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
 /**
@@ -18,8 +19,10 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     private $passwordEncoder;
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder){
+    private $session;
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, SessionInterface $session){
         $this->passwordEncoder = $passwordEncoder;
+        $this->session = $session;
     }
 
     /**
@@ -50,7 +53,13 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+            // create session
+            echo '<pre>session = '; print_r($this->session);exit();
+            // if logged in redirect here
+
             return $this->redirectToRoute('user_index');
+
+            // otherwise after creating account go back to login
         }
 
         return $this->render('user/new.html.twig', [
