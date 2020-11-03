@@ -1,6 +1,5 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <input type="hidden" name="user_id" value="{{ app.user.id }}">
     <hr>
     <button id="save-post-btn" name="save-post-btn" type="submit" class="btn">{{ button_label|default('Save') }}</button>
     <button id="clear-post-btn" name="clear-post-btn" type="reset">clear {{ app.user.id }}</button>
