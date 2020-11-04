@@ -3,39 +3,49 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-    <form id="login-form" name="login-form" method="post">
+    <div id="login-container">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <form id="login-form" name="login-form" method="post">
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
+                <h3 class="h3 mb-3 font-weight-normal text-center">Login</h3>
 
-        <h2 class="h3 mb-3 font-weight-normal">Login</h2>
+                {% if error %}
+                    <p class="alert alert-danger text-center"><i class="material-icons">error_outline</i> {{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                {% endif %}
 
-        {% if error %}
-            <p class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
-        {% endif %}
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="inputUsername"><i class="material-icons">alternate_email</i> Username</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" maxlength="16" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword"><i class="material-icons">vpn_key</i> Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" maxlength="16" required>
+                </div>
 
-        <label for="inputUsername">Username</label>
-        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" maxlength="16" required autofocus>
-        <label for="inputPassword">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" maxlength="16" required>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+                #}
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" name="_remember_me"> Remember me
-                </label>
-            </div>
-        #}
+                <button id="login-btn" name="login-btn" class="btn btn-lg btn-primary btn-block" type="submit" value="1"><span class="material-icons">lock_open</span>Login</button>
+            </form>
+            <a class="pull-right" href="{{ path('user_new')  }}">Not registered?  Create an account.</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 
-        <button id="login-btn" name="login-btn" class="btn btn-lg btn-primary" type="submit" value="1">Login</button>
-    </form>
-    <a href="{{ path('user_new')  }}">Not registered?  Create an account.</a>
 {% endblock %}
