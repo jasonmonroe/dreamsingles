@@ -1,35 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <meta http-equiv="X-UA-Compatible"    content="IE=edge">
+        <meta name="viewport"    		      content="width=device-width, initial-scale=1.0">
+        <meta name="description" 		      content="Dream Singles: #1 International Dating">
+        <meta name="keywords"    		      content="digital advertising, Dream Singles, parties, gatherings, celebration, international, europe, africa, australia, asia, middle east, europe">
+        <meta name="robots" 			      content="all, index, follow"/>
+        <meta name="Revisit-after"            content="8 days">
+        <meta name="author"      		      content="JM">
+        <meta name="publisher"                content="Symfony 5.1.8">
+        <meta name="organization"             content="Dream Singles">
+        <meta name="copyright"                content="Dream Singles">
+        <meta name="coverage"                 content="Worldwide, Reno, Nevada, United States">
+        <meta name="distribution"             content="Global">
+        <meta name="Identifier-URL"           content="www.dream-singles.com">
+        <meta name="rating"                   content="mature">
+        <meta name="csrf-param"               content="authenticity_token">
+        <meta name="csrf-token"               content="<?php csrf_token(time()) ?>">
+        <meta name="twitter:site"             content="@Dream Singles">
+        <meta name="title"                    content="Dream Singles - #1 International Dating">
+        <meta name="subject"                  content="international dating service">
+        <meta name="language"                 content="en">
+        <meta name="date-creation-yyyymmdd"   content="2020-11-04">
+        <meta name="date-revision-yyyymmdd"   content="<?php date('Y-m-d', filemtime('/templates/base.html.twig')) ?>">
+        <meta name="classification"           content="Premier international dating service">
+        <meta name="category" lang="en"       content="Internet">
+        <meta name="record_type"              content="profile">
+        <meta name="audience"                 content="all">
+        <meta name="location"                 content="Reno, Nevada, United States">
+        <meta name="org_name"                 content="Dream Singles">
+        <meta name="org_type"                 content="Organization">
+        <meta name="reply-to"                 content="admin@Dream-Singles.com">
+        <meta name="creator"                  content="JM - Dream Singles">
+        <meta name="contactcity"              content="Reno">
+        <meta name="contactstate"             content="Nevada">
+        <meta name="contactcountry"           content="USA">
+
+        <meta property="og:site_name" content="Dream Singles">
+        <meta property="og:title"     content="#1 International Dating">
+        <meta property="og:type"      content="website">
 
         <title>{% block title %}Welcome!{% endblock %}</title>
 
         {% block stylesheets %}
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="/assets/css/style.css">
+
+            <link rel="shortcut icon" href="/assets/images/favicon.ico"/>
         {% endblock %}
 
     </head>
     <body>
-        <pre>php bin/console cache:clear</pre>
-        <h1>Dream Singles</h1>
-        {% if app.user %}
-            <nav>
-                <span title="User ID: {{ app.user.id }}">Greetings @<a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.username }}</a></span>
-                <span>|</span>
-                <a href="{{ path('user_index') }}">Users</a>
-                <span>|</span>
-                <a href="{{ path('post_index') }}">Posts</a>
-                <span>|</span>
-                <a href="{{ path('app_logout') }}">Logout</a>
-            </nav>
-            <hr>
-
-        {% endif %}
+        <div class="container">
+            <pre>php bin/console cache:clear</pre>
 
 
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+            {% if app.user %}
+                <header>
+                    <h1>Dream Singles</h1>
+                    <nav>
+                        <span title="User ID: {{ app.user.id }}">Greetings @<a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.username }}</a></span>
+                        <span>|</span>
+                        <a href="{{ path('user_index') }}">Users </a>
+                        <span>|</span>
+                        <a href="{{ path('post_index') }}">Posts</a>
+                        <span>|</span>
+                        <a href="{{ path('app_logout') }}">Logout</a>
+                    </nav>
+                </header>
+
+                <hr>
+            {% endif %}
+
+
+            {% block body %}{% endblock %}
+            {% block javascripts %}
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            {% endblock %}
+        </div>
     </body>
 </html>
