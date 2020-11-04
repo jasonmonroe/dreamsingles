@@ -8,18 +8,20 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
+            ->add('username', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('roles', ChoiceType::class,
                 ['choices' =>
-                    ['User' => 'ROLE_USER', 'Admin' => 'ROLE_ADMIN']
+                    ['User' => 'ROLE_USER', 'Admin' => 'ROLE_ADMIN'],
+                    'attr' => ['class' => 'form-control']
                 ])
-            ->add('password')
+            ->add('password', TextType::class, ['attr' => ['class' => 'form-control']] )
         ;
 
         $builder->get('roles')->addModelTransformer(new CallbackTransformer(

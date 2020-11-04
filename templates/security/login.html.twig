@@ -4,8 +4,9 @@
 
 {% block body %}
     <div id="login-container">
-        <div class="col-md-6"></div>
-        <div class="col-md-6">
+        <div id="login-form-container" class="col-md-8">
+            <h1 class="h2-mt-10 text-center"><strong>DREAM SINGLES</strong></h1>
+            <img src="/assets/images/logo.webp">
             <form id="login-form" name="login-form" class="form-horizontal" role="form" method="post">
                 {% if app.user %}
                     <div class="mb-3">
@@ -14,6 +15,7 @@
                 {% endif %}
 
                 <h3 class="h3 mb-3 font-weight-normal text-center">Login</h3>
+                <hr>
 
                 {% if error %}
                     <p class="alert alert-danger text-center"><i class="material-icons">error_outline</i> {{ error.messageKey|trans(error.messageData, 'security') }}</p>
@@ -43,9 +45,8 @@
 
                 <button id="login-btn" name="login-btn" class="btn btn-lg btn-primary btn-block" type="submit" value="1"><span class="material-icons">lock_open</span>Login</button>
             </form>
-            <a class="pull-right" href="{{ path('user_new')  }}">Not registered?  Create an account.</a>
-        </div>
-        <div class="clearfix"></div>
-    </div>
 
+            <a class="pull-right btn btn-link" href="{{ path('user_new')  }}">Not registered?  Create an account.</a>
+        </div>
+    </div>
 {% endblock %}

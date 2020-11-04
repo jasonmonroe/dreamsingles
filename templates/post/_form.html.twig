@@ -1,8 +1,11 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <hr>
-    <button id="save-post-btn" name="save-post-btn" type="submit" class="btn btn-primary btn-lg">
-       {{ button_label|default('add post') }}
-    </button>
-    <button id="clear-post-btn" name="clear-post-btn" type="reset" class="btn btn-light btn-lg">clear</button>
-{{ form_end(form) }}
+<div id="post-form-container">
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+        <hr>
+        <button id="save-post-btn" name="save-post-btn" type="submit" class="btn btn-primary btn-lg">
+            {{ button_label|default('add post') }}
+        </button>
+        <button id="clear-post-btn" name="clear-post-btn" type="reset" class="btn btn-light btn-lg">clear</button>
+    {{ form_end(form) }}
+</div>
