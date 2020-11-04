@@ -5,10 +5,9 @@
 {% block body %}
     <div class="row">
         <div class="col-md-12">
-            <h2 class="h2-mt-10">Edit User: {{ user.id }}</h2>
+            <h2 class="h2-mt-10"><i class="material-icons">edit</i> Edit User: {{ user.id }}</h2>
             <hr>
             {{ include('user/_form.html.twig', {'button_label': 'edit user'}) }}
-
             <a class="pull-right btn btn-secondary" href="{{ path('user_index') }}"><< back to ledger</a>
         </div>
     </div>

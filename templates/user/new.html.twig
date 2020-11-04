@@ -3,9 +3,14 @@
 {% block title %}Register New User{% endblock %}
 
 {% block body %}
-    <h2><i class="material-icons">person</i> Register</h2>
-    <hr>
-    {{ include('user/_form.html.twig') }}
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="h2-mt-10"><i class="material-icons">person</i> Register</h2>
+            <hr>
+            {{ include('user/_form.html.twig') }}
 
-    <a class="pull-right btn btn-secondary" href="{{ path('user_index') }}"><< back to ledger</a>
+            <a class="pull-right btn btn-secondary" href="{{ path('user_index') }}"><< back to ledger</a>
+        </div>
+    </div>
+
 {% endblock %}

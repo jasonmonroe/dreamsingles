@@ -5,11 +5,10 @@
 {% block body %}
     <div class="row">
         <div class="col-md-12">
-            <h2 class="h2-mt-10">Edit Post: {{ post.id }}</h2>
+            <h2 class="h2-mt-10"><i class="material-icons">edit</i> Edit Post: {{ post.id }}</h2>
             <hr>
             {{ include('post/_form.html.twig', {'button_label': 'edit post'}) }}
             <a class="pull-right btn btn-secondary" href="{{ path('post_index') }}"><< back to ledger</a>
         </div>
     </div>
-
 {% endblock %}
