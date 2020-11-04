@@ -5,10 +5,10 @@
 {% block body %}
 <div class="row__">
     <div class="col-md-12">
-        <h2><i class="material-icons">person</i> User Ledger</h2>
+        <h2 class="h2-mt-10"><i class="material-icons">person</i> User Ledger</h2>
         <hr>
 
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th colspan="3">ACTION</th>
@@ -32,7 +32,7 @@
 
                     <td class="action-lnk"><a href="{{ path('user_show', {'id': user.id}) }}"><i class="material-icons">search</i></a></td>
                     <td>{{ user.id }}</td>
-                    <td>{{ user.username }}</td>
+                    <td>@{{ user.username }}</td>
                     <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                     <td>{{ '*****' }}</td>
                     <td>{{ user.created }}</td>
