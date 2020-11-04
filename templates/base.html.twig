@@ -9,13 +9,15 @@
 
     </head>
     <body>
-        <span>php bin/console cache:clear</span>
+        <pre>php bin/console cache:clear</pre>
         <h1>Dream Singles</h1>
         {% if app.user %}
             <nav>
-                <span>Greetings @<a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.username }}</a></span>
+                <span title="User ID: {{ app.user.id }}">Greetings @<a href="{{ path('user_show', {'id': app.user.id}) }}">{{ app.user.username }}</a></span>
                 <span>|</span>
                 <a href="{{ path('user_index') }}">Users</a>
+                <span>|</span>
+                <a href="{{ path('post_index') }}">Posts</a>
                 <span>|</span>
                 <a href="{{ path('app_logout') }}">Logout</a>
             </nav>

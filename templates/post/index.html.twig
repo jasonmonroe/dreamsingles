@@ -11,25 +11,31 @@
             <thead>
                 <tr>
                     <th>actions</th>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Poster</th>
                     <th>Title</th>
                     <th>Body <small>snippet</small></th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
             {% for post in posts %}
                 <tr>
                     <td>
-                        <span>{{ include('post/_delete_form.html.twig') }}</span>
-                        <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
-                        <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
+                        {% if app.user.id == post.userId %}
+                            <span>{{ include('post/_delete_form.html.twig') }}</span>
+                            <a href="{{ path('post_edit', {'id': post.id}) }}">E</a>
+                        {% else %}
+                            <button class="btn">D</button>
+                            <button class="btn">E</button>
+                        {% endif %}
+                        <a href="{{ path('post_show', {'id': post.id}) }}">S</a>
                     </td>
                     <td>{{ post.id }}</td>
                     <td>{{ post.userId }}</td>
                     <td>{{ post.title }}</td>
                     <td>{{ post.body }}</td>
-
+                    <td> {{ 'post.created' }}</td>
                 </tr>
             {% else %}
                 <tr>
