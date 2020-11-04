@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ADD Post{% endblock %}
+{% block title %}Add Post{% endblock %}
 
 {% block body %}
     <h1>Create new Post</h1>
     <hr>
     {{ include('post/_form.html.twig') }}
 
-    <a href="{{ path('post_index') }}"><< back to ledger</a>
+    <a class="pull-right btn btn-link" href="{{ path('post_index') }}"><< back to ledger</a>
 {% endblock %}

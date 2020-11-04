@@ -3,9 +3,9 @@
 {% block title %}Post Profile: {{ post.id }}{% endblock %}
 
 {% block body %}
-    <h1>Post Profile</h1>
+    <h2>Post Profile</h2>
     <hr>
-    <table class="table">
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>ID</th>
@@ -33,7 +33,7 @@
     </table>
 
     <hr>
-    <a href="{{ path('post_index') }}"><< back to ledger</a>
+    <a class="pull-right btn btn-link" href="{{ path('post_index') }}"><< back to ledger</a>
 
 <!--
     <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
