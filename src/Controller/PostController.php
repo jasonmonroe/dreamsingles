@@ -89,20 +89,28 @@ class PostController extends AbstractController
      */
     public function edit(Request $request, Post $post): Response
     {
+
         if($this->session->get('is_logged_in') == true) {
-            $form = $this->createForm(PostType::class, $post);
-            $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $this->getDoctrine()->getManager()->flush();
+            // if user is logged in, lets test to see if user can edit
+            if($this->session->get('user_id') == $post->getUserId()){
+                $form = $this->createForm(PostType::class, $post);
+                $form->handleRequest($request);
 
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $this->getDoctrine()->getManager()->flush();
+
+                    return $this->redirectToRoute('post_index');
+                }
+
+                return $this->render('post/edit.html.twig', [
+                    'post' => $post,
+                    'form' => $form->createView(),
+                ]);
+            } else {
                 return $this->redirectToRoute('post_index');
             }
 
-            return $this->render('post/edit.html.twig', [
-                'post' => $post,
-                'form' => $form->createView(),
-            ]);
         } else {
             return $this->redirectToRoute('app_login');
         }
@@ -115,11 +123,12 @@ class PostController extends AbstractController
     {
         if($this->session->get('is_logged_in') == true)
         {
-            if ($this->isCsrfTokenValid('delete'.$post->getId(), $request->request->get('_token')))
-            {
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->remove($post);
-                $entityManager->flush();
+            if($this->session->get('user_id') == $post->getUserId()) {
+                if ($this->isCsrfTokenValid('delete' . $post->getId(), $request->request->get('_token'))) {
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager->remove($post);
+                    $entityManager->flush();
+                }
             }
 
             return $this->redirectToRoute('post_index');
