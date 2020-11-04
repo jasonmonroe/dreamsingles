@@ -121,7 +121,7 @@ class User implements UserInterface
 
     public function getCreated(): ?string
     {
-        return $this->created;
+        return date('F j Y g:i:s a', strtotime($this->created));
     }
 
 }

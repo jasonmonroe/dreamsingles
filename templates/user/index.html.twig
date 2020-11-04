@@ -25,8 +25,8 @@
                         <a class="" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
 
                         {% else %}
-                        <button class="btn" type="button">D</button>
-                        <button class="btn" type="button">E</button>
+                        <a title="You are not allowed to delete user: {{ user.username }}" class="btn" >D</a>
+                        <a title="You are not allowed to edit user: {{ user.username }}" class="btn"  >E</a>
                     {% endif %}
                     <a class="" href="{{ path('user_show', {'id': user.id}) }}">show</a>
                 </td>
@@ -34,7 +34,7 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ '*****' }}</td>
-                <td>{{ 'user.created' }}</td>
+                <td>{{ user.created }}</td>
 
             </tr>
         {% else %}

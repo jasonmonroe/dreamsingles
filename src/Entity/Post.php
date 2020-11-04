@@ -61,7 +61,7 @@ class Post
 
     public function getCreated(): ?string
     {
-        return $this->created;
+        return date('F j Y g:i:s a', strtotime($this->created));
     }
 
     public function setBody(string $body): self

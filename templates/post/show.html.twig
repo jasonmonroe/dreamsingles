@@ -16,6 +16,10 @@
                 <td>{{ post.userId }}</td>
             </tr>
             <tr>
+                <th>Date</th>
+                <td>{{ post.created }}</td>
+            </tr>
+            <tr>
                 <th>Title</th>
                 <td>{{ post.title }}</td>
             </tr>
@@ -23,16 +27,13 @@
                 <th>Body</th>
                 <td>{{ post.body }}</td>
             </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ 'post.created' }}</td>
-            </tr>
+
 
         </tbody>
     </table>
 
     <hr>
-    <a href="{{ path('post_index') }}">back to ledger</a>
+    <a href="{{ path('post_index') }}"><< back to ledger</a>
 
 <!--
     <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
