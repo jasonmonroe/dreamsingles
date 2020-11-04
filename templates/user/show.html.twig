@@ -3,40 +3,40 @@
 {% block title %}User Profile: {{ user.id }}{% endblock %}
 
 {% block body %}
-    <h1>User Profile</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>User Profile</h2>
+            <hr>
 
-    <hr>
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>ID</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Username</th>
-                <td>@{{ user.username }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ '[redacted]' }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ user.created }}</td>
-            </tr>
-        </tbody>
-    </table>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <td>{{ user.id }}</td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>@{{ user.username }}</td>
+                </tr>
+                <tr>
+                    <th>Roles</th>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>{{ '[redacted]' }}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{ user.created }}</td>
+                </tr>
+                </tbody>
+            </table>
 
-    <hr>
-    <a href="{{ path('user_index') }}"><< back to ledger</a>
+            <hr>
+            <a class="pull-right btn btn-secondary" href="{{ path('user_index') }}"><< back to ledger</a>
+        </div>
+    </div>
 
-    <!--
-    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
 
-    {{ include('user/_delete_form.html.twig') }}
-    -->
 {% endblock %}

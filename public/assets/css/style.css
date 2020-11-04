@@ -3,10 +3,12 @@
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-
-
 }
 
 #login-form form {
     padding: 10px;
+}
+
+nav {
+    height: 70px;
 }

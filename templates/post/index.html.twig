@@ -3,53 +3,61 @@
 {% block title %}Post Ledger{% endblock %}
 
 {% block body %}
-    {%  if app.user != null %}
-        <h1>Post Ledger</h1>
-        <hr>
-        <p>DEBUG: User ID: {{ app.user.id }}</p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>actions</th>
-                    <th>ID</th>
-                    <th>Poster</th>
-                    <th>Title</th>
-                    <th>Body <small>snippet</small></th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for post in posts %}
-                <tr>
-                    <td>
+    <div class="row">
+        <div class="col-md-12">
+        {%  if app.user != null %}
+            <h2><i class="material-icons">comment</i> Post Ledger</h2>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th colspan="3">ACTION</th>
+                        <th>ID</th>
+                        <th>POSTER</th>
+                        <th>TITLE</th>
+                        <th>BODY <small>snippet</small></th>
+                        <th>DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                    <tr>
                         {% if app.user.id == post.userId %}
-                            <span>{{ include('post/_delete_form.html.twig') }}</span>
-                            <a href="{{ path('post_edit', {'id': post.id}) }}">E</a>
+                            <td>{{ include('post/_delete_form.html.twig') }}</td>
+                            <td><a href="{{ path('post_edit', {'id': post.id}) }}"><i class="material-icons">edit</i></a></td>
                         {% else %}
-                            <a title="You are not allowed to delete post: {{ post.id }}" class="btn">D</a>
-                            <a title="You are not allowed to edit post: {{ post.id }}" class="btn">E</a>
+                            <td><a title="You are not allowed to delete post: {{ post.id }}" class="btn btn-sm"><i class="material-icons">delete</i></a></td>
+                            <td><a title="You are not allowed to edit post: {{ post.id }}"><i class="material-icons">edit</i></a></td>
                         {% endif %}
-                        <a class="btn" href="{{ path('post_show', {'id': post.id}) }}">S</a>
-                    </td>
-                    <td>{{ post.id }}</td>
-                    <td>{{ post.userId }}</td>
-                    <td>{{ post.title }}</td>
-                    <td>{{ post.body }}</td>
-                    <td>{{ post.created }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5"><p class="alert alert-warning">There are no posts submitted.</p></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                        <td><a href="{{ path('post_show', {'id': post.id}) }}"><i class="material-icons">preview</i></a></td>
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.userId }}</td>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.body }}</td>
+                        <td>{{ post.created }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5"><p class="alert alert-warning">There are no posts submitted.</p></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
-        <hr>
-        <a href="{{ path('post_new') }}">add post</a>
-    {% endif %}
+<!--
+            <div class="card bg-light mb-3 mt-3">
+                <div class="card-body">
+                </div>
+            </div>
+-->
 
-    {% if app.user == null %}
-        <p class="alert alert-danger">This is a restricted page!  You must be logged in to view the ledger!</p>
-    {% endif %}
+            <hr>
+            <a class="pull-right btn btn-success" href="{{ path('post_new') }}">add post</a>
+        {% endif %}
+
+        {% if app.user == null %}
+            <p class="alert alert-danger"><i class="material-icons">error_outline</i> This is a restricted page!  You must be logged in to view the ledger!</p>
+        {% endif %}
+        </div>
+    </div>
 {% endblock %}

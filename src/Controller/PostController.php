@@ -42,7 +42,8 @@ class PostController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        if($this->session->get('is_logged_in') == true){
+        if($this->session->get('is_logged_in') == true)
+        {
             $post = new Post();
             $form = $this->createForm(PostType::class, $post);
             $form->handleRequest($request);
@@ -52,6 +53,7 @@ class PostController extends AbstractController
 
                 // set user id
                 $post->setUserId(intval($this->session->get('user_id')));
+                $post->setCreated(date('Y-m-d H:i:s'));
 
                 $entityManager->persist($post);
                 $entityManager->flush();

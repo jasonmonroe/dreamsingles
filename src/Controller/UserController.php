@@ -54,6 +54,7 @@ class UserController extends AbstractController
             $encoded       = $this->passwordEncoder->encodePassword($user, $plainPassword);
 
             $user->setPassword($encoded);
+            $user->setCreated(date('Y-m-d H:i:s'));
 
             $entityManager->persist($user);
             $entityManager->flush();
