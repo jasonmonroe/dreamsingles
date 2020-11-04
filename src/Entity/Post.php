@@ -49,7 +49,7 @@ class Post
 
     public function setTitle(string $title): self
     {
-        $this->title = $title;
+        $this->title = trim($title);
 
         return $this;
     }
@@ -66,7 +66,7 @@ class Post
 
     public function setBody(string $body): self
     {
-        $this->body = $body;
+        $this->body = trim($body);
 
         return $this;
     }
@@ -80,7 +80,7 @@ class Post
 
     public function getUserId(): ?int
     {
-        return $this->user_id;
+        return (int)$this->user_id;
     }
 
     public function setUserId(int $user_id): self

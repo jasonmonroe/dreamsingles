@@ -56,7 +56,7 @@ class User implements UserInterface
 
     public function setUsername(string $username): self
     {
-        $this->username = $username;
+        $this->username = trim($username);
 
         return $this;
     }
@@ -90,7 +90,7 @@ class User implements UserInterface
 
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        $this->password = trim($password);
 
         return $this;
     }
