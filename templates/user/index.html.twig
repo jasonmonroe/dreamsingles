@@ -5,7 +5,7 @@
 {% block body %}
 <div class="row">
     <div class="col-md-12">
-        <h2><i class="material-icons">user</i> User Ledger</h2>
+        <h2><i class="material-icons">person</i> User Ledger</h2>
         <hr>
 
         <table class="table table-striped">
@@ -22,12 +22,11 @@
             <tbody>
             {% for user in users %}
                 <tr>
-
                     {% if app.user.id == user.id %}
                         <td>{{ include('user/_delete_form.html.twig') }}</td>
                         <td><a href="{{ path('user_edit', {'id': user.id}) }}"><i class="material-icons">edit</i></a></td>
                     {% else %}
-                        <td><a title="You are not allowed to delete user: {{ user.username }}"><i class="material-icons">delete</i></a></td>
+                        <td><a href="#" title="You are not allowed to delete user: {{ user.username }}"><i class="material-icons">delete</i></a></td>
                         <td><a title="You are not allowed to edit user: {{ user.username }}"><i class="material-icons">edit</i></a></td>
                     {% endif %}
 
@@ -37,17 +36,17 @@
                     <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                     <td>{{ '*****' }}</td>
                     <td>{{ user.created }}</td>
-
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5"><p class="alert alert-warning">There are no registrations.</p></td>
+                    <td colspan="8"><p class="alert alert-warning"><i class="material-icons">info_outline</i> There are no registered users.</p></td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
 
-
+        <hr>
+        <a class="pull-right btn btn-success btn-lg" href="{{ path('user_new') }}">add user</a>
     </div>
 </div>
 
@@ -55,6 +54,5 @@
 
 
 
-    <hr>
-    <a href="{{ path('user_new') }}">add user</a>
+
 {% endblock %}

@@ -1,6 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
     <hr>
-    <button id="save-user-btn" name="save-user-btn" class="btn btn-primary" type="submit">{{ button_label|default('Save') }}</button>
-    <button id="clear-user-btn" name="clear-user-btn" type="reset" class="btn btn-default">clear</button>
+    <button id="save-user-btn" name="save-user-btn" class="btn btn-primary" type="submit"><i class="material-icons">person_add</i> {{ button_label|default('Save') }}</button>
+    <button id="clear-user-btn" name="clear-user-btn" type="reset" class="btn btn-light btn-lg">clear</button>
 {{ form_end(form) }}
