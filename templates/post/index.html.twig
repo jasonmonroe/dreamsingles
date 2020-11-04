@@ -26,16 +26,16 @@
                             <span>{{ include('post/_delete_form.html.twig') }}</span>
                             <a href="{{ path('post_edit', {'id': post.id}) }}">E</a>
                         {% else %}
-                            <button class="btn">D</button>
-                            <button class="btn">E</button>
+                            <a title="You are not allowed to delete post: {{ post.id }}" class="btn">D</a>
+                            <a title="You are not allowed to edit post: {{ post.id }}" class="btn">E</a>
                         {% endif %}
-                        <a href="{{ path('post_show', {'id': post.id}) }}">S</a>
+                        <a class="btn" href="{{ path('post_show', {'id': post.id}) }}">S</a>
                     </td>
                     <td>{{ post.id }}</td>
                     <td>{{ post.userId }}</td>
                     <td>{{ post.title }}</td>
                     <td>{{ post.body }}</td>
-                    <td> {{ 'post.created' }}</td>
+                    <td>{{ post.created }}</td>
                 </tr>
             {% else %}
                 <tr>

@@ -29,7 +29,7 @@ class UserController extends AbstractController
      * @Route("/", name="user_index", methods={"GET"})
      */
     public function index(UserRepository $userRepository): Response
-    {
+    {//echo '<pre>';print_r($userRepository->findAll()); exit();
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
@@ -53,13 +53,15 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // create session
-            echo '<pre>session = '; print_r($this->session);exit();
-            // if logged in redirect here
+            $is_logged_in = $this->session->get('is_logged_in');
 
-            return $this->redirectToRoute('user_index');
-
-            // otherwise after creating account go back to login
+            if($is_logged_in === true){
+                // if logged in redirect here
+                return $this->redirectToRoute('user_index');
+            } else {
+                // otherwise after creating account go back to login
+                return $this->redirectToRoute('app_login');
+            }
         }
 
         return $this->render('user/new.html.twig', [
