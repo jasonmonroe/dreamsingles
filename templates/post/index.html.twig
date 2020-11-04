@@ -8,7 +8,7 @@
         {%  if app.user != null %}
             <h2><i class="material-icons">comment</i> Post Ledger</h2>
             <hr>
-            <table class="table table-striped">
+            <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th colspan="3">ACTION</th>
@@ -23,18 +23,18 @@
                 {% for post in posts %}
                     <tr>
                         {% if app.user.id == post.userId %}
-                            <td>{{ include('post/_delete_form.html.twig') }}</td>
-                            <td><a href="{{ path('post_edit', {'id': post.id}) }}"><i class="material-icons">edit</i></a></td>
+                            <td class="action-lnk">{{ include('post/_delete_form.html.twig') }}</td>
+                            <td class="action-lnk"><a href="{{ path('post_edit', {'id': post.id}) }}"><i class="material-icons">edit</i></a></td>
                         {% else %}
-                            <td><a title="You are not allowed to delete post: {{ post.id }}" class="btn btn-sm"><i class="material-icons">delete</i></a></td>
-                            <td><a title="You are not allowed to edit post: {{ post.id }}"><i class="material-icons">edit</i></a></td>
+                            <td class="action-lnk"><a title="You are not allowed to delete post: {{ post.id }}" class="btn btn-sm"><i class="material-icons">delete_outline</i></a></td>
+                            <td class="action-lnk"><a title="You are not allowed to edit post: {{ post.id }}"><i class="material-icons">edit</i></a></td>
                         {% endif %}
-                        <td><a href="{{ path('post_show', {'id': post.id}) }}"><i class="material-icons">preview</i></a></td>
+                        <td class="action-lnk"><a href="{{ path('post_show', {'id': post.id}) }}"><i class="material-icons">search</i></a></td>
                         <td>{{ post.id }}</td>
                         <td>{{ post.userId }}</td>
                         <td>{{ post.title }}</td>
-                        <td>{{ post.body }}</td>
-                        <td>{{ post.created }}</td>
+                        <td>{{ '...' }}</td>
+                        <td><small>{{ post.created }}</small></td>
                     </tr>
                 {% else %}
                     <tr>
@@ -43,13 +43,6 @@
                 {% endfor %}
                 </tbody>
             </table>
-
-<!--
-            <div class="card bg-light mb-3 mt-3">
-                <div class="card-body">
-                </div>
-            </div>
--->
 
             <hr>
             <a class="pull-right btn btn-success" href="{{ path('post_new') }}">add post</a>

@@ -3,7 +3,7 @@
 {% block title %}User Registration Ledger{% endblock %}
 
 {% block body %}
-<div class="row">
+<div class="row__">
     <div class="col-md-12">
         <h2><i class="material-icons">person</i> User Ledger</h2>
         <hr>
@@ -23,14 +23,14 @@
             {% for user in users %}
                 <tr>
                     {% if app.user.id == user.id %}
-                        <td>{{ include('user/_delete_form.html.twig') }}</td>
-                        <td><a href="{{ path('user_edit', {'id': user.id}) }}"><i class="material-icons">edit</i></a></td>
+                        <td class="action-lnk">{{ include('user/_delete_form.html.twig') }}</td>
+                        <td class="action-lnk"><a href="{{ path('user_edit', {'id': user.id}) }}"><i class="material-icons">edit</i></a></td>
                     {% else %}
-                        <td><a href="#" title="You are not allowed to delete user: {{ user.username }}"><i class="material-icons">delete</i></a></td>
-                        <td><a title="You are not allowed to edit user: {{ user.username }}"><i class="material-icons">edit</i></a></td>
+                        <td class="action-lnk"><a href="#" title="You are not allowed to delete user: {{ user.username }}"><i class="material-icons">delete_outline</i></a></td>
+                        <td class="action-lnk"><a title="You are not allowed to edit user: {{ user.username }}"><i class="material-icons">edit</i></a></td>
                     {% endif %}
 
-                    <td><a href="{{ path('user_show', {'id': user.id}) }}"><i class="material-icons">preview</i></a></td>
+                    <td class="action-lnk"><a href="{{ path('user_show', {'id': user.id}) }}"><i class="material-icons">search</i></a></td>
                     <td>{{ user.id }}</td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.roles ? user.roles|json_encode : '' }}</td>

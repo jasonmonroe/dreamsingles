@@ -12,3 +12,12 @@
 nav {
     height: 70px;
 }
+
+.action-lnk {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.delete-icon-adj {
+    margin-top: -7px;
+}

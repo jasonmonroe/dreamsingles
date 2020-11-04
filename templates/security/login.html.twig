@@ -6,10 +6,10 @@
     <div id="login-container">
         <div class="col-md-6"></div>
         <div class="col-md-6">
-            <form id="login-form" name="login-form" method="post">
+            <form id="login-form" name="login-form" class="form-horizontal" role="form" method="post">
                 {% if app.user %}
                     <div class="mb-3">
-                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        <p>You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a></p>
                     </div>
                 {% endif %}
 
@@ -24,7 +24,7 @@
                     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" maxlength="16" required autofocus>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="inputPassword"><i class="material-icons">vpn_key</i> Password</label>
+                    <label class="col-md-4 control-label" for="inputPassword"><i class="material-icons">lock</i> Password</label>
                     <input type="password" name="password" id="inputPassword" class="form-control" maxlength="16" required>
                 </div>
 

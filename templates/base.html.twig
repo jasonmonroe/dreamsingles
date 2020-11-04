@@ -57,15 +57,14 @@
 
     </head>
     <body>
-    <pre>php bin/console cache:clear</pre>
-    <pre>{{ app ? app|json_encode : '' }}</pre>
+
         {% if app.user %}
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">DREAM SINGLES</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a title="User ID: {{ app.user.id }}" class="nav-link" href="{{ path('user_show', {'id': app.user.id}) }}"><em>@{{ app.user.username }}</em></a>
+                        <a title="User ID: {{ app.user.id }}" class="nav-link" href="{{ path('user_show', {'id': app.user.id}) }}"><strong><em>@{{ app.user.username }}</em></strong></a>
                     </li>
                     <li>
                         <a class="nav-link" href="{{ path('user_index') }}">Users</a>
@@ -81,7 +80,6 @@
         {% endif %}
 
         <div class="container">
-
             {% block body %}{% endblock %}
             {% block javascripts %}
                 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
