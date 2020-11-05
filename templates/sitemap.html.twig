@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Site Map{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if app.user == null %}
+                <p class="alert alert-warning text-center"><i class="material-icons">info_outline</i> You are not currently logged in.  You can view Site Map as a directory. </p>
+            {% endif %}
+
+            <h2 class="h2-mt-10"><i class="material-icons">view_headline</i> Site Map</h2>
+
+            <p class="alert alert-info text-center">
+                <i class="material-icons">info_outline</i> Don't forget to clear cache! $_ php bin/console cache:clear
+            </p>
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Users</th>
+                        <th>Posts</th>
+                        <th>Misc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="{{ path('user_index') }}">ledger</a></td>
+                        <td><a href="{{ path('post_index') }}">ledger</a></td>
+                        <td><a href="{{ path('app_login') }}">login</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="{{ path('user_new') }}">add</a></td>
+                        <td><a href="{{ path('post_new') }}">add</a></td>
+                        <td><a href="{{ path('app_logout') }}">logout</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="{{ path('user_edit', {'id': 0}) }}">edit</a></td>
+                        <td><a href="{{ path('post_edit', {'id': 0}) }}">edit</a></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><a href="{{ path('user_show', {'id': 0}) }}">profile</a></td>
+                        <td><a href="{{ path('post_show', {'id': 0}) }}">profile</a></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

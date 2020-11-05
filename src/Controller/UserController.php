@@ -137,11 +137,19 @@ class UserController extends AbstractController
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->remove($user);
                     $entityManager->flush();
+
+                    $this->_delete_yourself();
                 }
             }
             return $this->redirectToRoute('user_index');
         } else {
             return $this->redirectToRoute('app_login');
         }
+    }
+
+    private function _delete_yourself(){
+        // if you delete yourself, automatically, destroy session and logout
+        session_destroy();
+        return $this->redirectToRoute('app_login');
     }
 }

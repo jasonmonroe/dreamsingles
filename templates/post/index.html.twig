@@ -15,7 +15,7 @@
                         <th>ID</th>
                         <th>USER</th>
                         <th>TITLE</th>
-                        <th>BODY <small>snippet</small></th>
+                        <th>BODY <small class="alert alert-warning" style="padding:2px 4px">snippet</small></th>
                         <th>DATE</th>
                     </tr>
                 </thead>
@@ -39,7 +39,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="5"><p class="alert alert-warning">There are no posts submitted.</p></td>
+                        <td colspan="8" class="alert alert-warning text-center"><i class="material-icons">info_outline</i> There are no posts submitted.</td>
                     </tr>
                 {% endfor %}
                 </tbody>

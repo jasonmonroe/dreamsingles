@@ -6,9 +6,17 @@
 #  path: /
 #  controller: App\Controller\SecurityController::login
 
-hometown:
+#homepage:
+  #path: /
+  #controller: App\Controller\SecurityController::login
+
+home:
   path: /
-  controller: App\Controller\SecurityController::login
+  controller: App\Controller\SecurityController::sitemap
+
+sitemap:
+  path: /sitemap
+  controller: App\Controller\SecurityController::sitemap
 
 post_ledger:
   path: /post

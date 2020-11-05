@@ -16,7 +16,7 @@ class PostType extends AbstractType
         $builder
             ->add('title', TextType::class, ['attr' => ['class' => 'form-control', 'maxlength' => 32]])
             ->add('body', TextAreaType::class,
-                ['attr' => ['class' => 'form-control', 'cols' => 4, 'maxlength' =>255]]
+                ['attr' => ['class' => 'form-control', 'cols' => 5, 'maxlength' =>255]]
             );
 
     }
