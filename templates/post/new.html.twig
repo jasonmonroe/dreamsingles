@@ -3,9 +3,12 @@
 {% block title %}Add Post{% endblock %}
 
 {% block body %}
-    <h1>Create new Post</h1>
-    <hr>
-    {{ include('post/_form.html.twig') }}
-
-    <a class="pull-right btn btn-link" href="{{ path('post_index') }}"><< back to ledger</a>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="h2-mt-10"><i class="material-icons">comment</i> Add Post</h2>
+            <hr>
+            {{ include('post/_form.html.twig') }}
+            <a class="pull-right btn btn-secondary" href="{{ path('post_index') }}"><< back to ledger</a>
+        </div>
+    </div>
 {% endblock %}

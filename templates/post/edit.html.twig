@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Post{% endblock %}
+{% block title %}Edit Post: {{ post.id }}{% endblock %}
 
 {% block body %}
-    <h1>Edit Post</h1>
-    <hr>
-    {{ include('post/_form.html.twig', {'button_label': 'edit post'}) }}
-
-    <a href="{{ path('post_index') }}">back to list</a>
-
-
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="h2-mt-10"><i class="material-icons">edit</i> Edit Post: {{ post.id }}</h2>
+            <hr>
+            {{ include('post/_form.html.twig', {'button_label': 'edit'}) }}
+            <a class="pull-right btn btn-secondary" href="{{ path('post_index') }}"><< back to ledger</a>
+        </div>
+    </div>
 {% endblock %}

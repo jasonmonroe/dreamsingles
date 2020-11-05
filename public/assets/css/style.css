@@ -1,14 +1,42 @@
 #login-form {
-    border: 1px solid #dedede;
+    padding: 20px;
+    border: 1px solid #c2c2c2;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-}
-
-#login-form form {
-    padding: 10px;
+    background-color: #efefef;
 }
 
 nav {
     height: 70px;
+}
+
+.action-lnk {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.delete-icon-adj {
+    margin-top: -7px;
+}
+
+.h2-mt-10 {
+    margin-top: 15px;
+}
+
+#login-form input {
+    font-size:14px;
+}
+
+.logo-font {
+    font-family: 'Secular One', sans-serif;
+}
+
+.nav-delimiter-adj {
+    margin-top: 7px;
+}
+
+#login-container {
+    margin-left: 25%;
+    margin-top: 15%;
 }

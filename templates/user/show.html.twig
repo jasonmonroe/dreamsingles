@@ -5,9 +5,8 @@
 {% block body %}
     <div class="row">
         <div class="col-md-12">
-            <h2>User Profile</h2>
+            <h2 class="h2-mt-10"><i class="material-icons">person</i> User Profile: {{ user.id }}</h2>
             <hr>
-
             <table class="table table-striped">
                 <tbody>
                 <tr>
@@ -15,28 +14,25 @@
                     <td>{{ user.id }}</td>
                 </tr>
                 <tr>
-                    <th>Username</th>
+                    <th>@USERNAME</th>
                     <td>@{{ user.username }}</td>
                 </tr>
                 <tr>
-                    <th>Roles</th>
+                    <th>ROLES</th>
                     <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 </tr>
                 <tr>
-                    <th>Password</th>
-                    <td>{{ '[redacted]' }}</td>
+                    <th>PASSWORD</th>
+                    <td>{{ '*****' }}</td>
                 </tr>
                 <tr>
-                    <th>Date</th>
+                    <th>DATE REGISTERED</th>
                     <td>{{ user.created }}</td>
                 </tr>
                 </tbody>
             </table>
-
             <hr>
             <a class="pull-right btn btn-secondary" href="{{ path('user_index') }}"><< back to ledger</a>
         </div>
     </div>
-
-
 {% endblock %}
