@@ -29,12 +29,12 @@
                             <td class="action-lnk"><a title="You are not allowed to delete post: {{ post.id }}" class="btn btn-link action-lnk delete-icon-adj"><i class="material-icons">delete_outline</i></a></td>
                             <td class="action-lnk"><a title="You are not allowed to edit post: {{ post.id }}"><i class="material-icons">edit</i></a></td>
                         {% endif %}
-
                         <td class="action-lnk"><a href="{{ path('post_show', {'id': post.id}) }}"><i class="material-icons">search</i></a></td>
+
                         <td>{{ post.id }}</td>
                         <td>{{ post.userId }}</td>
                         <td>{{ post.title }}</td>
-                        <td>{{ '...' }}</td>
+                        <td><em>{{ post.body|slice(0, 32) }}...</em></td>
                         <td>{{ post.created }}</td>
                     </tr>
                 {% else %}

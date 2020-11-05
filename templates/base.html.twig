@@ -46,6 +46,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="/assets/css/style.css">
 
@@ -58,18 +59,21 @@
     <body>
         {% if app.user %}
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#"><h2>DREAM SINGLES</h2></a>
+                <a class="navbar-brand" href="#"><h2 class="logo-font">DREAM SINGLES</h2></a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a title="User ID: {{ app.user.id }}" class="nav-link" href="{{ path('user_show', {'id': app.user.id}) }}"><strong><em>@{{ app.user.username }}</em></strong></a>
                     </li>
+                    <li class="nav-delimiter-adj"><span>|</span></li>
                     <li>
                         <a class="nav-link" href="{{ path('user_index') }}">Users</a>
                     </li>
+                    <li class="nav-delimiter-adj"><span>|</span></li>
                     <li>
                         <a class="nav-link" href="{{ path('post_index') }}">Posts</a>
                     </li>
+                    <li class="nav-delimiter-adj"><span>|</span></li>
                     <li>
                         <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
                     </li>

@@ -102,7 +102,6 @@ class UserController extends AbstractController
                 $form->handleRequest($request);
 
                 if ($form->isSubmitted() && $form->isValid()) {
-                    //$this->getDoctrine()->getManager()->flush();
                     $entityManager = $this->getDoctrine()->getManager();
 
                     $plainPassword = $user->getPassword();
